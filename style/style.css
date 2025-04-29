@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "Robot flex";
+    src: url(..//font/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
+/* #F8F6F2
+#E6DDC6
+#B4D8D2
+#F5D5CB
+#D4E4F0
+#E2D4EE */
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family:'Robot flex';
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h2{
+    font-family: 'Robot flex';
+}
+.container-form{
+    background-color: #B4D8D2;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    position: relative;
+    gap: 50px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+    width: 100%;
+}
+.form label{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    background-color: #E6DDC6;
+    padding: 5px;
+    border-radius: 12px;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+}
+.cancel{
+    position: absolute;
+    right: 6px;
+    color: #EA3323;
+    bottom: 40px;
+    transition: bottom, 0.3s ;
+}
+.cancel-pass{
+    position: absolute;
+    right: 6px;
+    color: #EA3323;
+    bottom: 40px;
+    transition: bottom, 0.3s ;
+}
+.form input{
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 90%;
+}
+label span{
+    user-select: none;
+}
+.links a{
+    display: inline-block;
+    margin-left: 12px;
+    margin-top: 5px;
+
+}
+.btn1{
+    font-size: 14px;
+    padding: 8px;
+    width: fit-content;
+    letter-spacing: 2px;
+    background-color: #D4E4F0;
+    border-radius: 12px;
+    border:1px solid #E2D4EE;
+    font-family: inherit;
+}
+.btn1:hover{
+    cursor: pointer;
+}
+.btn1:active{
+    background-color: #c2d2F1;
+}
+.btn1 ~ span{
+    user-select: none;
+}
+.btn1-registro{
+    margin-top: -20px;
+}
+.aviso{
+    transform: translateY(-20px);
+    color: red;
+    position: absolute;
+    bottom: 95px;
+    text-align: center;
+}
+.container-form::before{
+    content: '';
+    position: absolute;
+    padding: 1px;
+    background-color: red;
+    width: 47%;
+    left: 0;
+    bottom: 100px;
+}
+.container-form::after{
+    content: '';
+    position: absolute;
+    padding: 1px;
+    background-color: red;
+    width: 47%;
+    right:0;
+    bottom: 100px;
+}
+.circule{
+    position: absolute;
+    bottom: 90px;
+}
+.logo-google{
+    width: 100px;
+    margin-top: 80px;
+    cursor: pointer;
+}
+.logo-registro{
+    margin-top:21px;
+}
+#registro{
+    gap: 0px;
+}
