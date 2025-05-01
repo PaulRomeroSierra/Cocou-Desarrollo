@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,25 +14,33 @@
         <form class="form" id="form_inicio">
             <label>
                 <span class="material-symbols-outlined ">email</span>
-                <input type="text" name="name" id="mail" placeholder="Email" >
+                <input type="text" name="email" id="mail" class="input" placeholder="Email">
                 <span class="material-symbols-outlined cancel">cancel</span>
             </label>
             <label>
-              <span class="material-symbols-outlined pass">visibility_off</span>
-                <input type="password" name="pass" placeholder="Contraseña" class="contraseña" >
+                <span class="material-symbols-outlined pass">visibility_off</span>
+                <input type="password" name="contraseña" placeholder="Contraseña" class="input contraseña">
                 <span class="material-symbols-outlined cancel-pass">cancel</span>
             </label>
             <div class="links">
                 <a href="html/registro.html">Resgitrate</a><a href="#">Olvidé mi contraseña</a>
             </div>
             <button class="btn btn1">Ingresar</button>
-            <p class="aviso"></p>
             <span class="material-symbols-outlined  circule">circle</span>
             <div>
                 <img src="img/google-logo.png" alt="logo-google" class="logo-google">
             </div>
+            <span class="aviso">
+                <p>
+                    la contraseña debe tener al menos una letra mayúscula,
+                    una letra minúscula,
+                    un dígito,
+                    un carácter especial y 5 caracteres.
+                </p>
+            </span>
         </form>
     </div>
-    <script  src="js/codigo.js"></script>
+    <script src="js/codigo.js"></script>
 </body>
+
 </html>
