@@ -19,6 +19,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 15px;
 }
 h2{
     font-family: 'Robot flex';
@@ -38,14 +39,14 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     padding: 10px;
     width: 100%;
 }
 .form label{
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     background-color: #E6DDC6;
     padding: 5px;
     border-radius: 12px;
@@ -60,7 +61,7 @@ h2{
     bottom: 40px;
     transition: bottom, 0.3s ;
 } 
-.cancel_user,.cancel_mail,.cancel_new_pass,.cancel_confirm_pass{
+:where(.cancel_user,.cancel_mail,.cancel_new_pass,.cancel_confirm_pass){
     position: absolute;
     right: 6px;
     color: #EA3323;
@@ -104,25 +105,30 @@ label span{
     user-select: none;
 }
 .btn1-registro{
-    margin-top: -20px;
+    margin-top: 50px;
 }
 .aviso{
     transform: translateY(-20px);
     color: red;
     position: absolute;
-    bottom: 95px;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
     padding: 0px 5px 0px 5px;
-    opacity: 0;
     transition: opacity 0.5s ;
+    top: 65%;
+    width: fit-content;
+    margin: 0;
+    opacity: 0;
+}
+.aviso p{
+    margin: none;
 }
 .container-form::before{
     content: '';
     position: absolute;
     padding: 1px;
-    background-color: red;
+    background-color: #48e;
     width: 46.5%;
     left: 0;
     bottom: 100px;
@@ -131,7 +137,7 @@ label span{
     content: '';
     position: absolute;
     padding: 1px;
-    background-color: red;
+    background-color: #48e;
     width: 46.5%;
     right:0;
     bottom: 100px;
@@ -149,6 +155,7 @@ label span{
     margin-top:21px;
 }
 #registro{
-    gap: 0px;
+    margin-top: 10px;
+    gap: 10px;
 }
 

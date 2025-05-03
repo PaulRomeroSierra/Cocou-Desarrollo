@@ -13,17 +13,7 @@ if (form) {
         e.preventDefault();
         validarInicio();
     });
-
-
-    /**
-     * Al menos una letra mayúscula en inglés
-Al menos una letra minúscula en inglés
-Al menos un dígito
-Al menos un carácter especial
-Mínimo de ocho pulgadas de largo
-     */
     function validarInicio() {
-        const aviso = document.querySelector(".aviso");
         let flag = false;
         let validar = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
         let validarContraseña = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{5,}$/;
@@ -39,16 +29,14 @@ Mínimo de ocho pulgadas de largo
             flag = true;
             cancel_pass.textContent = "cancel";
             cancel_pass.style.color = "red";
-            aviso.style.opacity="1"
         } else {
             cancel_pass.textContent = "check";
             cancel_pass.style.color = "green";
-            aviso.style.opacity="0";
         }
         if (flag) {
             cancel.style.bottom = "5px";
             cancel_pass.style.bottom = "5px";
-        }else{
+        } else {
             cancel.style.bottom = "5px";
             cancel_pass.style.bottom = "5px";
         }
@@ -66,7 +54,6 @@ Mínimo de ocho pulgadas de largo
     }
 }
 
-
 if (form_registro) {
     const ocultar1 = document.querySelector(".pass_register");
     const ocultar2 = document.querySelector(".pass_new");
@@ -78,73 +65,125 @@ if (form_registro) {
     const cancel_mail = document.querySelector(".cancel_mail");
     const cancel_new_pass = document.querySelector(".cancel_new_pass");
     const cancel_confirm_pass = document.querySelector(".cancel_confirm_pass");
+    const aviso = document.querySelector(".aviso");
+
 
 
     eventsRegistro();
+    validacion();
     form_registro.addEventListener("submit", e => {
-        e.preventDefault();
-        validarRegistro();
+        if(validarFormulario()){
+            e.preventDefault();
+            alert("Completa los campos en rojo")
+        }
     });
-    function validarRegistro() {
+
+
+    function validarFormulario(){
+        let valido =false;
+        if(validacionNombre()){
+            valido=true;
+        }
+        if(validacionMail()){
+        valido=true;
+        }
+        if(validacionContraseñaNueva()){
+        valido=true;
+        }
+        return valido;
+    }
+
+
+    function eventsRegistro() {
+        ocultar2.addEventListener("mousedown", e => {
+            ocultar2.innerHTML = "visibility";
+            verContraseña2.setAttribute("type", "text");
+        });
+        ocultar2.addEventListener("click", e => {
+            ocultar2.innerHTML = "visibility_off";
+            verContraseña2.setAttribute("type", "password");
+        });
+        ocultar1.addEventListener("mousedown", e => {
+            ocultar1.innerHTML = "visibility";
+            constraseña1.setAttribute("type", "text");
+        });
+        ocultar1.addEventListener("click", e => {
+            ocultar1.innerHTML = "visibility_off";
+            constraseña1.setAttribute("type", "password");
+        });
+    }
+
+    function validacion() {
+        nombre.addEventListener("input", validacionNombre);
+        mail_register.addEventListener("input", validacionMail);
+        constraseña1.addEventListener("input", validacionContraseñaNueva);
+        verContraseña2.addEventListener("input", validacionContraseñaNueva);
+    }
+
+    function validacionNombre() {
         let flag = false;
         let ValidarNombre = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
-        let validarMail = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
-        let validarContraseñaRegistro = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{5,}$/;
         if (!ValidarNombre.test(nombre.value)) {
             flag = true;
             cancel_name.textContent = "cancel";
             cancel_name.style.color = "red";
-        }else {
+        } else {
             cancel_name.textContent = "check";
             cancel_name.style.color = "green";
         }
-        if(!validarMail.test(mail_register.value)){
-            flag= true;
-            cancel_mail.textContent="cancel";
-            cancel_mail.style.color="red";
-        }else{
-            cancel_mail.textContent="check";
-            cancel_mail.style.color="green";
-        }
-        if(!validarContraseñaRegistro.test(constraseña1.value)|| constraseña1.value != verContraseña2.value){
-            cancel_new_pass.textContent="cancel";
-            cancel_new_pass.style.color="red";
-        }else{
-            cancel_new_pass.textContent="check";
-            cancel_new_pass.style.color="green";
-
-        }
-        if(!validarContraseñaRegistro.test(verContraseña2.value) || constraseña1.value!=verContraseña2.value){
-            cancel_confirm_pass.textContent="cancel";
-            cancel_confirm_pass.style.color="red";
-        }else{
-            cancel_confirm_pass.textContent="check";
-            cancel_confirm_pass.style.color="green";
-        }
         if (flag) {
             cancel_name.style.bottom = "5px";
+        } else {
+            cancel_name.style.bottom = "5px";
+        }
+        return flag;
+    }
+    function validacionMail() {
+        let flag = false;
+        let validarMail = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+        if (!validarMail.test(mail_register.value)) {
+            flag = true;
+            cancel_mail.textContent = "cancel";
+            cancel_mail.style.color = "red";
+        } else {
+            cancel_mail.textContent = "check";
+            cancel_mail.style.color = "green";
+        }
+        if (flag) {
             cancel_mail.style.bottom = "5px";
-            cancel_new_pass.style.bottom="5px";
-            cancel_confirm_pass.style.bottom="5px";
+        } else {
+            cancel_mail.style.bottom = "5px";
         }
+        return flag;
+    }
+    function validacionContraseñaNueva() {
+        let flag = false;
+        let validarContraseñaRegistro = /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{5,}$/;
+        if (!validarContraseñaRegistro.test(constraseña1.value) || constraseña1.value != verContraseña2.value) {
+            flag = true;
+            cancel_new_pass.textContent = "cancel";
+            cancel_new_pass.style.color = "red";
+        } else {
+            cancel_new_pass.textContent = "check";
+            cancel_new_pass.style.color = "green";
         }
-
-        function eventsRegistro(){
-            ocultar2.addEventListener("mousedown", e => {
-                ocultar2.innerHTML = "visibility";
-                verContraseña2.setAttribute("type", "text");
-            });
-            ocultar2.addEventListener("click", e => {
-                ocultar2.innerHTML = "visibility_off";
-                verContraseña2.setAttribute("type", "password");
-            });
-            ocultar1.addEventListener("mousedown", e => {
-                ocultar1.innerHTML = "visibility";
-                constraseña1.setAttribute("type", "text");
-            });
-            ocultar1.addEventListener("click", e => {
-                ocultar1.innerHTML = "visibility_off";
-                constraseña1.setAttribute("type", "password");
-            });
+        if (!validarContraseñaRegistro.test(verContraseña2.value) || constraseña1.value != verContraseña2.value) {
+            flag =true;
+            cancel_confirm_pass.textContent = "cancel";
+            cancel_confirm_pass.style.color = "red";
+            aviso.style.opacity = "1";
+        } else {
+            cancel_confirm_pass.textContent = "check";
+            cancel_confirm_pass.style.color = "green";
+            aviso.style.opacity = "0";
         }
+        if (flag) {
+            cancel_new_pass.style.bottom = "5px";
+            cancel_confirm_pass.style.bottom = "5px";
+        } else {
+            cancel_new_pass.style.bottom = "5px";
+            cancel_confirm_pass.style.bottom = "5px";
+        }
+        return flag;
+    }
 }
