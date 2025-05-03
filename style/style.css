@@ -158,4 +158,11 @@ label span{
     margin-top: 10px;
     gap: 10px;
 }
-
+.contraseña_aviso{
+    position: absolute;
+    bottom: 41%;
+    font-size: 12px;
+    left: 10%;
+    color: #f00;
+    display: none;
+}
