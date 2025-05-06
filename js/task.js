@@ -8,7 +8,7 @@ export class Task {
         this.#description = description;
         this.#date = date;
     }
-    
+
     get title() {
         return this.#title;
     }
