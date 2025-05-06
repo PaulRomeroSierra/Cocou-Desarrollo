@@ -10,7 +10,6 @@ let taskDescription;
 let taskDate;
 
 initializeEventListeners();
-
 function initializeEventListeners() {
     addTask.addEventListener("click", getFormData);
 }

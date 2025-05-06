@@ -71,6 +71,7 @@ h2 {
     border: none;
     outline: none;
     padding: 5px;
+    border: 1px solid var(--color7);
 }
 #description{
     resize: none;
@@ -84,4 +85,13 @@ h2 {
     border-radius: 12px;
     border:1px solid var(--color6);
     font-family: inherit;
+    transition: background , .3s, color .3s;
+    border:  1px solid var(--color7);
+}
+#agregar:active{
+    background-color: var(--color7);
+    color: #fff;
+}
+#agregar:hover{
+    cursor: pointer;
 }
