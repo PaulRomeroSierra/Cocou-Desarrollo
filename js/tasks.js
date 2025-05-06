@@ -1,5 +1,19 @@
-let tasks = [];
+export class Tasks {
+    #tasks
 
-export const getTasks = () => tasks;
-export const addTask = (task) => tasks.push(task);
-export const removeTask = (index) => tasks.splice(index, 1);
+    constructor() {
+        this.#tasks = []
+    }
+
+    get tasks() {
+        return this.#tasks;
+    }
+
+    addTask(task) {
+        this.#tasks.push(task);
+    }
+
+    removeTask(index) {
+        this.#tasks.splice(index, 1);
+    }
+}

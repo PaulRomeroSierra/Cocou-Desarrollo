@@ -114,6 +114,13 @@ label span{
 .btn1-registro{
     margin-top: 50px;
 }
+
+#register-button {
+    display: inline;
+    width: 40%;
+    margin: auto;
+}
+
 .aviso{
     transform: translateY(-20px);
     color: red;

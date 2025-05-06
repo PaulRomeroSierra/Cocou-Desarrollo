@@ -1,6 +1,3 @@
-import { addTask } from "./tasks.js";
-import { Task } from "./task.js";
-
 const creationForm = document.getElementById("creation_form");
 const addTask = document.getElementById("agregar");
 
@@ -27,6 +24,5 @@ const getFormData = () => {
     }
 
     // Aca añades el del chulito
-    addTask(new Task(taskName, taskDescription, taskDate));
     alert("Tarea agregada");
 }
