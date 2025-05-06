@@ -1,0 +1,127 @@
+@font-face {
+    font-family: "Robot flex";
+    src: url(..//font/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+/* Copy paste */
+:root {
+    --color1: #f8f6f2;
+    --color2: #e6ddc6;
+    --color3: #b4d8d2;
+    --color4: #f5d5cb;
+    --color5: #d4e4f0;
+    --color6: #e2d4ee;
+    --color7: #48e;
+    --color8: #ea3323;
+    --color9: #c2d2F1;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family:'Robot flex';
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    align-items: center;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo_perfil{
+    background-color: var(--color7);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.managment_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 380px;
+    padding: 20px;
+    gap: 20px;
+    background:var(--color9);
+    border-radius: 12px;
+    min-height: 500px;
+}
+.container_img{
+    display: flex;
+    width: 80px;
+}
+.container_img img{
+    width: 100%;
+    margin-top: 10px;
+}
+.container--item{
+    cursor: pointer;
+    width: 80%;
+    background-color: #e2d4ee;
+    height: 70px;
+    border-radius: 12px;
+    color: #F0F3EE;
+    position: relative;
+}
+.container--item div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 12px 2px 12px;
+}
+.barra_progreso{
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+    border-radius: 5px;
+    display: flex;
+    gap: 2px;
+}
+.estado--item{
+    padding: 4px;
+    flex-grow: 1;
+    background-color: #628ECB;
+    border-radius: 2px;
+}
+.prioridad--item{
+    padding: 4px;
+    flex-grow: 1;
+    background-color: #628ECB;
+    border-radius: 2px;
+}
+.item__color1{
+    background-color: #8B0000;
+}
+.item__color2{
+    background-color: #CC3300;
+}
+.item__color3{
+    background-color: #FFCC00;
+}
+.item__color4{
+    background-color: #00CC00;
+}
+.estado__color1{
+background-color: #FF0000;
+}
+.estado__color2{
+    background-color: #FFFF00;
+}
+.estado__color3{
+    background-color: #00cc00;
+}
+.container_prioridad{
+    background-color: #8AAEE0;
+}
+.container_estado{
+    background-color: #628ECB;
+}
+.container_tarea{
+    background-color: #395886;
+}
