@@ -19,14 +19,7 @@ if (form) {
     });
 
     function validarInicio(){
-        let valido =false;
-        if(validarMailInicio()){
-            valido=true;
-        }
-        if(validarContraseñaInicio()){
-        valido=true;
-        }
-        return valido;
+        return validarMailInicio() && validarContraseñaInicio();
     }
 
     function eventsIncio() {
@@ -111,17 +104,7 @@ if (form_registro) {
     });
 
     function validarFormulario(){
-        let valido =false;
-        if(validacionNombre()){
-            valido=true;
-        }
-        if(validacionMail()){
-        valido=true;
-        }
-        if(validacionContraseñaNueva()){
-        valido=true;
-        }
-        return valido;
+        return validacionNombre() && validacionMail() && validacionContraseñaNueva();
     }
 
     function eventsRegistro() {

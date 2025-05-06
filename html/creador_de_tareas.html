@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="creator-header">
+        <img src="" alt="Volver"> <!-- Volver img -->
+        <h2>Creador de Tareas</h2>
+    </header>
+    <main class="main-section">
+        <form action="" method="post" id="creation_form">
+            <label for="title">Titulo de la tarea</label>
+            <input type="text" id="title" required>
+            <label for="description">Descripción</label>
+            <textarea name="description" id="description" value="No description provided"></textarea>
+            <label for="date">Agregar fecha de vencimiento</label>
+            <input type="date" id="date">
+            <button id="agregar">Agregar</button>
+        </form>
+    </main>
+    <script type="module" scr="js/task_creator.js"></script>
+</body>
+</html>

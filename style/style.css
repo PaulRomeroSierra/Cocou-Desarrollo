@@ -3,12 +3,19 @@
     src: url(..//font/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
 }
 
-/* #F8F6F2
-#E6DDC6
-#B4D8D2
-#F5D5CB
-#D4E4F0
-#E2D4EE */
+/* Copy paste */
+:root {
+    --color1: #f8f6f2;
+    --color2: #e6ddc6;
+    --color3: #b4d8d2;
+    --color4: #f5d5cb;
+    --color5: #d4e4f0;
+    --color6: #e2d4ee;
+    --color7: #48e;
+    --color8: #ea3323;
+    --color9: #c2d2F1;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -25,7 +32,7 @@ h2{
     font-family: 'Robot flex';
 }
 .container-form{
-    background-color: #B4D8D2;
+    background-color: var(--color3);
     max-width: 480px;
     display: flex;
     flex-direction: column;
@@ -47,7 +54,7 @@ h2{
     display: flex;
     justify-content: center;
     gap: 10px;
-    background-color: #E6DDC6;
+    background-color: var(--color2);
     padding: 5px;
     border-radius: 12px;
     width: 300px;
@@ -57,14 +64,14 @@ h2{
 .cancel,.cancel-pass{
     position: absolute;
     right: 6px;
-    color: #EA3323;
+    color: var(--color8);
     bottom: 40px;
     transition: bottom, 0.3s ;
 } 
 :where(.cancel_user,.cancel_mail,.cancel_new_pass,.cancel_confirm_pass){
     position: absolute;
     right: 6px;
-    color: #EA3323;
+    color: var(--color8);
     bottom: 40px;
     transition: bottom, 0.3s ;
 }
@@ -90,16 +97,16 @@ label span{
     padding: 8px;
     width: fit-content;
     letter-spacing: 2px;
-    background-color: #D4E4F0;
+    background-color: var(--color5);
     border-radius: 12px;
-    border:1px solid #E2D4EE;
+    border:1px solid var(--color6);
     font-family: inherit;
 }
 .btn1:hover{
     cursor: pointer;
 }
 .btn1:active{
-    background-color: #c2d2F1;
+    background-color: var(--color9);
 }
 .btn1 ~ span{
     user-select: none;
@@ -128,7 +135,7 @@ label span{
     content: '';
     position: absolute;
     padding: 1px;
-    background-color: #48e;
+    background-color: var(--color7);
     width: 46.5%;
     left: 0;
     bottom: 100px;
@@ -137,7 +144,7 @@ label span{
     content: '';
     position: absolute;
     padding: 1px;
-    background-color: #48e;
+    background-color: var(--color7);
     width: 46.5%;
     right:0;
     bottom: 100px;

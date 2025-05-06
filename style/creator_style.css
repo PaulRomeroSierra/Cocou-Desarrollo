@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "Robot flex";
+    src: url(..//font/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
+}
+
+:root {
+    --color1: #f8f6f2;
+    --color2: #e6ddc6;
+    --color3: #b4d8d2;
+    --color4: #f5d5cb;
+    --color5: #d4e4f0;
+    --color6: #e2d4ee;
+    --color7: #48e;
+    --color8: #ea3323;
+    --color9: #c2d2F1;
+}
+
+*{ 
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Robot flex';
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+h2 {
+    font-family: 'Robot flex';
+}
