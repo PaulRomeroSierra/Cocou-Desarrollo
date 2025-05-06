@@ -14,7 +14,7 @@ if (form) {
     form.addEventListener("submit", e => {
         if(validarInicio()){
             e.preventDefault();
-            alert("No puedes iniciar sin ingresar los datos");
+            alert("No puedes iniciar sin ingresar los datos correctamente");
         }
     });
 
@@ -193,9 +193,11 @@ if (form_registro) {
             flag = true;
             cancel_new_pass.textContent = "cancel";
             cancel_new_pass.style.color = "red";
+            aviso.style.opacity = "1";
         } else {
             cancel_new_pass.textContent = "check";
             cancel_new_pass.style.color = "green";
+            aviso.style.opacity = "0";
         }
         if (!validarContraseñaRegistro.test(verContraseña2.value)) {
             flag =true;
