@@ -32,15 +32,10 @@ const applyProperties = (valid, element) => {
     element.style.color = "red";
 }
 
+eventForm();
 eventsRegistro();
 eventsValidacionRegistro();
 
-form_registro.addEventListener("submit", e => {
-    if (!validarFormulario()) {
-        e.preventDefault();
-        alert("No puedes registrarte sin llenar los campos correctamente");
-    }
-});
 
 function applyRegisterPasswordProperties(valid) {
     if (valid) {
@@ -67,7 +62,7 @@ function applyRegisterPasswordProperties(valid) {
     cancel_new_pass.textContent = "cancel";
     cancel_new_pass.style.color = "red";
     aviso.style.opacity = "1";
-
+    
     cancel_new_pass.style.bottom = "5px";
     cancel_confirm_pass.style.bottom = "5px";
 }
@@ -81,17 +76,17 @@ function eventsRegistro() {
         ocultar2.innerHTML = "visibility";
         verContraseña2.setAttribute("type", "text");
     });
-
+    
     ocultar2.addEventListener("click", e => {
         ocultar2.innerHTML = "visibility_off";
         verContraseña2.setAttribute("type", "password");
     });
-
+    
     ocultar1.addEventListener("mousedown", e => {
         ocultar1.innerHTML = "visibility";
         constraseña1.setAttribute("type", "text");
     });
-
+    
     ocultar1.addEventListener("click", e => {
         ocultar1.innerHTML = "visibility_off";
         constraseña1.setAttribute("type", "password");
@@ -103,6 +98,30 @@ function eventsValidacionRegistro() {
     mail_register.addEventListener("input", validacionMail);
     constraseña1.addEventListener("input", validacionContraseñaNueva);
     verContraseña2.addEventListener("input", validacionContraseñaNueva);
+}
+
+function eventForm() {
+    form_registro.addEventListener("submit", e => {
+        if (!validarFormulario()) {
+            e.preventDefault();
+            alert("No puedes registrarte sin llenar los campos correctamente");
+            return;
+        }
+
+        /* Add user */
+        // location.href = "../html/pantalla_inicial.html";
+        // alert("Registrando usuario...");
+
+        // let existing_user = findUserWithEmail(mail_register.value);
+        // if (existing_user) {
+        //     alert("Ya hay una cuenta creada con este correo\n\n¿Deseas intentar iniciar sesión?");
+        //     return;
+        // }
+
+        // existing_user = new User(nombre.value, mail_register.value, constraseña1.value);
+        // registerUser(existing_user);
+        // ActualUser.user = existing_user;
+    });
 }
 
 function validacionNombre() {

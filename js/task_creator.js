@@ -1,7 +1,7 @@
 const creationForm = document.getElementById("creation_form");
 const addTask = document.getElementById("agregar");
 
-let formData = FormData();
+let formData = new FormData();
 let taskName;
 let taskDescription;
 let taskDate;
@@ -12,7 +12,7 @@ function initializeEventListeners() {
 }
 
 const getFormData = () => {
-    formData = FormData(creationForm);
+    formData = new FormData(creationForm);
     taskName = formData.get("title");
     taskDescription = formData.get("description");
     taskDate = formData.get("date");

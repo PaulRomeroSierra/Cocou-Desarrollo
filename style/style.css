@@ -122,6 +122,7 @@ label span{
 }
 
 .aviso{
+    user-select: none;
     transform: translateY(-20px);
     color: red;
     position: absolute;
@@ -130,7 +131,7 @@ label span{
     text-align: center;
     padding: 0px 5px 0px 5px;
     transition: opacity 0.5s ;
-    top: 65%;
+    top: 67%;
     width: fit-content;
     margin: 0;
     opacity: 0;
@@ -174,7 +175,7 @@ label span{
 }
 .contraseña_aviso{
     position: absolute;
-    bottom: 41%;
+    bottom: 30%;
     font-size: 12px;
     left: 10%;
     color: #f00;
