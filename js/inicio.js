@@ -1,4 +1,4 @@
-import { isValidEmail, isValidPassword } from "./modules/validation_module.js";
+import { getActiveUser } from "./user_manager.js";
 
 const form = document.querySelector("#form_inicio");
 
@@ -10,18 +10,8 @@ const mail = document.getElementById("mail");
 const cancel = document.querySelector(".cancel");
 const cancel_pass = document.querySelector(".cancel-pass");
 
-const applyProperties = (valid, element) => {
-    if (valid) {
-        element.textContent = "check";
-        element.style.color = "green";
-        element.style.bottom = "5px";
-        return;
-    }
-
-    element.textContent = "cancel";
-    element.style.bottom = "5px";
-    element.style.color = "red";
-}
+const email = getActiveUser().email;
+const password = getActiveUser().contraseña;
 
 eventsIncio();
 eventsValidacionInicio();
@@ -30,8 +20,15 @@ form.addEventListener("submit", e => {
     if (!validarInicio()) {
         e.preventDefault();
         alert("No puedes iniciar sin ingresar los datos correctamente");
+        return;
     }
+    enterMainPage();
 });
+
+function enterMainPage() {
+    location.href = "../html/pantalla_inicial.html";
+    alert("Iniciando sesión...");
+}
 
 function validarInicio() {
     return validarMailInicio() && validarContraseñaInicio();
@@ -50,19 +47,14 @@ function eventsIncio() {
 }
 
 function validarMailInicio() {
-    let validate = isValidEmail(mail.value);
-    applyProperties(validate, cancel);
-    return validate;
+    return mail.value === email;
 }
 
 function validarContraseñaInicio() {
-    let validate = isValidPassword(verContraseña.value);
-    applyProperties(validate, cancel_pass);
-    return validate;
+    return verContraseña.value === password;
 }
 
 function eventsValidacionInicio() {
     mail.addEventListener("input", validarMailInicio);
     verContraseña.addEventListener("input", validarContraseñaInicio);
 }
-
