@@ -11,19 +11,35 @@
 <body>
     <div class="container-form">
         <header class="creator-header">
+            <span src="" alt="Volver" class="material-symbols-outlined">arrow_back</span>
             <h2>Creador de Tareas</h2>
-            <span src="" alt="Volver" class="material-symbols-outlined">menu</span>
+            <span src="" alt="Volver" class="logo_perfil">?</span>
         </header>
         <main class="main-section">
             <form action="" method="post" id="creation_form">
-                <label for="title">Titulo de la tarea</label>
-                <input class="input" type="text" id="title" required>
+                <div class="container container_tittle">
+                <label for="title">Titulo</label>
+                <input class="input" type="text" id="title" 
+                required>
+            </div>
+            <div class="container container_description">
                 <label for="description">Descripción</label>
                 <textarea class="input" name="description" id="description" value="No description provided"
                     rows="4" required></textarea>
-                <label for="date">Agregar fecha de vencimiento</label>
+                </div>
+                <div class="container container_date">
+                <label for="date">Fecha limite</label>
                 <input class="input" type="date" id="date" required>
-                <button id="agregar">Agregar</button>
+            </div>
+                <button id="agregar">
+                    <span class="agregar item--1">A</span>
+                    <span class="agregar item--2">g</span>
+                    <span class="agregar item--3">r</span>
+                    <span class="agregar item--4">e</span>
+                    <span class="agregar item--5">g</span>
+                    <span class="agregar item--6">a</span>
+                    <span class="agregar item--7">r</span>
+                </button>
             </form>
         </main>
     </div>

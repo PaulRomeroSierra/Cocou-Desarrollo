@@ -15,7 +15,7 @@
     --color9: #c2d2F1;
 }
 
-*{ 
+* {
     box-sizing: border-box;
 }
 
@@ -31,9 +31,11 @@ body {
 
 h2 {
     font-family: 'Robot flex';
+    color: #F0F3EE;
 }
-.container-form{
-    background-color: var(--color3);
+
+.container-form {
+    background-color: #395886;
     width: fit-content;
     overflow: hidden;
     border-radius: 12px;
@@ -41,7 +43,8 @@ h2 {
     flex-direction: column;
     padding: 12px;
 }
-.main-section{
+
+.main-section {
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -51,7 +54,8 @@ h2 {
     gap: 50px;
     border-radius: 12px;
 }
-#creation_form{
+
+#creation_form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,39 +63,130 @@ h2 {
     padding: 10px;
     width: 100%;
 }
-.creator-header{
+
+.creator-header {
     max-width: 500px;
-    background-color: var(--color3);
+    background-color: transparent;
     display: flex;
     align-items: center;
     gap: 20px;
 }
-.input{
+
+.logo_perfil {
+    width: 30px;
+    height: 30px;
+    background-color: #48e;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #628ECB;
+    border-radius: 12px;
+    padding: 8px;
+    gap: 5px;
+}
+
+.container_tittle {
+    background-color: #55a38B;
+}
+
+.container_description {
+    background-color: #00876B;
+}
+.container_date{
+    background-color: #006750;
+}
+div label {
+    color: #F0F3EE;
+}
+
+.input {
     border-radius: 5px;
     border: none;
     outline: none;
     padding: 5px;
-    border: 1px solid var(--color7);
+    width: 100%;
 }
-#description{
+
+#description {
     resize: none;
 }
-#agregar{
+
+#agregar {
     font-size: 14px;
     padding: 8px;
     width: fit-content;
     letter-spacing: 2px;
-    background-color: var(--color5);
+    background-color: #e1ede0;
     border-radius: 12px;
-    border:1px solid var(--color6);
     font-family: inherit;
-    transition: background , .3s, color .3s;
-    border:  1px solid var(--color7);
+    transition: background, .3s, color .3s;
+    display: flex;
+    border: none;
 }
-#agregar:active{
+
+.agregar {
+    font-size: 16px;
+    display: block;
+    animation: crecer 2s ease-in-out infinite;
+    color: #005346;
+    transition: color 0.4s ease-in-out;
+}
+
+.item--1 {
+    animation-delay: 0.2;
+}
+
+.item--2 {
+    animation-delay: 0.4s;
+}
+
+.item--3 {
+    animation-delay: 0.6s;
+}
+
+.item--4 {
+    animation-delay: 0.8s;
+}
+
+.item--5 {
+    animation-delay: 1s;
+}
+
+.item--6 {
+    animation-delay: 1.2s;
+}
+
+.item--7 {
+    animation-delay: 1.4s;
+}
+
+#agregar:active {
     background-color: var(--color7);
-    color: #fff;
+    scale: 0.97;
 }
-#agregar:hover{
+#agregar:active > .agregar {
+    color: #d4e4f0;
+}
+#agregar:hover {
     cursor: pointer;
+}
+
+@keyframes crecer {
+
+    0%,100%{
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }

@@ -25,12 +25,13 @@ body{
     display: flex;
     justify-content: center;
     min-height: 90vh;
-    align-items: center;
+    align-items: center; 
 }
 .header{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    
 }
 .logo_perfil{
     background-color: var(--color7);
