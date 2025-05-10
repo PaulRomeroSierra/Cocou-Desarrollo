@@ -75,7 +75,7 @@ h2 {
 .logo_perfil {
     width: 30px;
     height: 30px;
-    background-color: #48e;
+    background-color: var(--color7);
     padding: 12px;
     border-radius: 50%;
     display: flex;
