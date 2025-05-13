@@ -126,3 +126,8 @@ background-color: #FF0000;
 .container_tarea{
     background-color: #395886;
 }
+
+a{
+    text-decoration: none;
+    color:#395886;
+}
