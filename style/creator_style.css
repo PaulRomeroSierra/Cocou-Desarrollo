@@ -190,3 +190,12 @@ div label {
         transform: translateY(-10px);
     }
 }
+
+a{
+    color: #e2d4ee;
+    user-select: none;
+    text-decoration: none;
+}
+a:hover{
+    color: #d4e4f0;
+}

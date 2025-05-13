@@ -49,6 +49,8 @@ body{
     justify-content: space-between;
     gap: 30px;
     padding: 10px;
+    background-color: #d4e4f0;
+    border-radius: 12px;
 }
 img{
     max-width: 40px;
@@ -69,6 +71,10 @@ img{
     align-items: center;
     padding: 5px;
 }
+.members:hover{
+    opacity: .9;
+    cursor: pointer;
+}
 .container__task{
     display: flex;
     align-items: center;
@@ -77,4 +83,20 @@ img{
     padding: 8px;
     width: fit-content;
     color:#F0F3EE ;
+    cursor: pointer;
+    transition: background, 0.2s;
+}
+
+.container__task:hover{
+    background-color: #48e;
+    transition: background, 0.2s;
+}
+.container__task:active{
+        scale: 0.98;
+}
+
+a {
+    color:#F0F3EE ;
+    text-decoration: none;
+    user-select: none;
 }
