@@ -1,6 +1,8 @@
 const creationForm = document.getElementById("creation_form");
 const managmentform= document.getElementById("gestion_tareas");
 const addTask = document.getElementById("agregar");
+
+
 let formData = new FormData();
 let taskName;
 let taskDescription;
@@ -8,21 +10,32 @@ let taskDate;
 
 initializeEventListeners();
 function initializeEventListeners() {
-    addTask.addEventListener("click", getFormData);
+    creationForm.addEventListener("submit", e =>{
+        e.preventDefault();
+        if(validarCreator()){
+            procesarCreator();
+            creationForm.reset();
+            mostrarGestionTareas();
+        }
+    }
+    );
 }
 
-// const getFormData = () => {
-//     formData = new FormData(creationForm);
-//     taskName = formData.get("title");
-//     taskDescription = formData.get("description");
-//     taskDate = formData.get("date");
+function procesarCreator() {
+    formData = new FormData(creationForm);
+    taskName = formData.get("title");
+    taskDescription = formData.get("description");
+    taskDate = formData.get("date");
+}
 
-//     if (taskName === "") {
-//         alert("El nombre de la tarea no puede estar vacio.");
-//         // Añade el vainoso este que hiciste del mensaje de error con el icono de la X
-//         return;
-//     }
-//     // Aca añades el del chulito
-//     alert("Tarea agregada");
+function validarCreator(){
+    if( creationForm.title.value === "" || creationForm.description.value === "" || creationForm.date.value === ""){
+        alert("Todos los campos deben estar llenados");
+        return false;
+    }
+    return true;
+}
 
-// }
+function mostrarGestionTareas(){
+    managmentform.style.display = "flex";
+}
