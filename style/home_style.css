@@ -35,6 +35,7 @@ body{
     padding: 10px;
     width: fit-content;
     border-radius: 12px;
+    min-width: 380px;
 }
 
 .container__header{
@@ -58,8 +59,9 @@ img{
     max-width: 40px;
 }
 .container__members{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+    grid-template-rows: auto;
     gap: 20px;
 }
 .members:nth-child(2n){
@@ -71,7 +73,8 @@ img{
     background-color: #628ECB;
     border-radius: 12px;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
+    height: 100px;
 }
 .members:hover{
     opacity: .9;
