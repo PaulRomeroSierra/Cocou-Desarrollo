@@ -201,3 +201,79 @@ div label {
 .back-creator:hover{
     color: #d4e4f0;
 }
+
+
+/*Mensaje de exito*/
+.container__message{
+    width: 400px;
+    height: 200px;
+    background-color: #00876B;
+    position: relative;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.message{
+    background-color: #fff;
+    height: 80%;
+    width: 80%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.messague__circule{
+    width: 50%;
+    height: 80%;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow:hidden ;
+}
+.circle1{
+    background:linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 76%);
+    width: 200%;
+    height: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotar 1s linear infinite;
+}
+.circule2{
+    background-color: #fff;
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.message__text{
+    position: absolute;
+    bottom: 14px;
+}
+.circule2-message{
+    font-size: 60px;
+}
+.circule2-check{
+    width: 80%;
+    position: absolute;
+}
