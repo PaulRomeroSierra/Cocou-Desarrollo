@@ -103,9 +103,11 @@ h2 {
 .container_description {
     background-color: #00876B;
 }
-.container_date{
+
+.container_date {
     background-color: #006750;
 }
+
 div label {
     color: #F0F3EE;
 }
@@ -143,15 +145,15 @@ div label {
     transition: color 0.4s ease-in-out;
 }
 
-.item--1 {
+/* .item--1 {
     animation-delay: 0.2;
 }
 
 .item--2 {
     animation-delay: 0.4s;
-}
+} */
 
-.item--3 {
+/* .item--3 {
     animation-delay: 0.6s;
 }
 
@@ -169,22 +171,25 @@ div label {
 
 .item--7 {
     animation-delay: 1.4s;
-}
+} */
 
 #agregar:active {
     background-color: var(--color7);
     scale: 0.97;
 }
-#agregar:active > .agregar {
+
+#agregar:active>.agregar {
     color: #d4e4f0;
 }
+
 #agregar:hover {
     cursor: pointer;
 }
 
 @keyframes crecer {
 
-    0%,100%{
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -193,18 +198,19 @@ div label {
     }
 }
 
-.back-creator{
+.back-creator {
     color: #e2d4ee;
     user-select: none;
     text-decoration: none;
 }
-.back-creator:hover{
+
+.back-creator:hover {
     color: #d4e4f0;
 }
 
 
 /*Mensaje de exito*/
-.container__message{
+.container__message {
     width: 400px;
     height: 200px;
     background-color: #00876B;
@@ -214,16 +220,18 @@ div label {
     align-items: center;
     justify-content: center;
 }
-.message{
+
+.message {
     background-color: #fff;
-    height: 80%;
+    height: 95%;
     width: 80%;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.messague__circule{
+
+.messague__circule {
     width: 50%;
     height: 80%;
     background-color: transparent;
@@ -232,10 +240,12 @@ div label {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow:hidden ;
+    overflow: hidden;
+    padding: 10px;
 }
-.circle1{
-    background:linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 76%);
+
+.circle1 {
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 50%, rgba(0, 212, 255, 1) 76%);
     width: 200%;
     height: 200%;
     display: flex;
@@ -243,7 +253,8 @@ div label {
     justify-content: center;
     animation: rotar 1s linear infinite;
 }
-.circule2{
+
+.circule2 {
     background-color: #fff;
     width: 95%;
     height: 95%;
@@ -259,21 +270,51 @@ div label {
     0% {
         transform: rotate(0deg);
     }
-    50%{
+
+    50% {
         transform: rotate(180deg);
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
     }
 }
-.message__text{
+
+.message__text {
     position: absolute;
-    bottom: 14px;
+    bottom: -10px;
 }
-.circule2-message{
+
+.circule2-message {
     font-size: 60px;
 }
-.circule2-check{
+
+.circule2-check {
     width: 80%;
     position: absolute;
+}
+
+.message__dots {
+    font-size: 20px;
+    font-size: 16px;
+    animation: crecer 1.5s ease-in-out infinite;
+    color: #005346;
+    transition: color 0.4s ease-in-out;
+    display: inline-block;
+    margin: none;
+    padding: 0;
+}
+
+.dot-1 {
+    color: red;
+    animation-delay: 0.2s;
+}
+
+.dot-2 {
+    color: blue;
+    animation-delay: 0.4s;
+}
+.dot-3{
+    color: red;
+    animation-delay: 0.6s;
 }

@@ -26,7 +26,7 @@ form.addEventListener("submit", e => {
 });
 
 function enterMainPage() {
-    window.location.href = "../html/pantalla_inicial.html";
+    window.location.href = "../templates/pantalla_inicial.html";
     alert("Iniciando sesión...");
 }
 
