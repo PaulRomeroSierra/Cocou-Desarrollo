@@ -36,6 +36,7 @@ body{
     width: fit-content;
     border-radius: 12px;
     min-width: 380px;
+    position: relative;
 }
 
 .container__header__icons{
@@ -47,8 +48,13 @@ body{
     padding: 10px;
     background-color: #d4e4f0;
     border-radius: 12px;
+    position: absolute;
+    top: 10%;
+    left: 0;
 }
-
+h2{
+    margin: auto;
+}
 .container__header__icons img:hover{
     cursor: pointer;
 }
@@ -101,4 +107,108 @@ a {
     color:#F0F3EE ;
     text-decoration: none;
     user-select: none;
+}
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto 0;
+    position: relative;
+    background-color: #628ECB;
+    padding: 25px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 480px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease-out;
+    color: #d4e4f0;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #666;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+/* Estilos para las tareas */
+.task-list {
+    margin-top: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.task-item {
+    background: #f9f9f9;
+    border-left: 4px solid #4CAF50;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.task-item h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.task-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 8px;
+}
+
+/* Estilos para el avatar */
+.member-avatar {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.member-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para los miembros */
+.members {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.member-avatar {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.member-avatar:hover {
+    transform: scale(1.05);
 }

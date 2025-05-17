@@ -38,8 +38,20 @@
                 </input>
             </form>
         </main>
+            <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal material-symbols-outlined">close</span>
+            <h3>Tarea Creada Exitosamente</h3>
+            <div class="task-details">
+                <p><strong>Título:</strong> <span id="modal-task-title"></span></p>
+                <p><strong>Prioridad:</strong> <span id="modal-task-priority"></span></p>
+                <p><strong>Descripción:</strong> <span id="modal-task-description"></span></p>
+                <p><strong>Fecha Límite:</strong> <span id="modal-task-date"></span></p>
+            </div>
+            <button id="confirmOkBtn" class="modal-btn">Aceptar</button>
+        </div>
     </div>
-
+    </div>
     <script type="module" src="..//js/task_creator.js"></script>
 </body>
 

@@ -120,15 +120,19 @@ background-color: #FF0000;
 }
 .container_prioridad{
     background-color: #8AAEE0;
+    z-index: 30;
 }
 .container_estado{
     background-color: #628ECB;
+    z-index: 20;
 }
 .container_tarea{
     background-color: #395886;
+    z-index: 10;
 }
 
 .back-managment{
     text-decoration: none;
     color:#395886;
 }
+
