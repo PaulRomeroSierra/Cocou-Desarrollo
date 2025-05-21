@@ -1,7 +1,10 @@
 import { getActiveUser } from "./user_manager.js";
 const bienvenida = document.getElementById("bienvenida");
-bienvenida.textContent = bienvenida.textContent.replace("{UserName}", getActiveUser().name);
-document.addEventListener('DOMContentLoaded', function () {
+bienvenida.textContent = bienvenida.textContent.replace(
+    "{UserName}",
+    getActiveUser().name
+);
+document.addEventListener("DOMContentLoaded", function () {
     const miembrosData = {
         1: {
             nombre: "Jonathan Rossi",
@@ -11,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     descripcion: "Crear wireframes para la nueva aplicación",
                     fecha: "2025-06-15",
                     prioridad: "alta",
-                    completada: false
-                }
-            ]
+                    completada: true,
+                },
+            ],
         },
         2: {
             nombre: "Inael Rodriguez",
@@ -23,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     descripcion: "Correguir error de Formulario de inicio",
                     fecha: "2025-05-27",
                     prioridad: "media",
-                    completada: false
-                }
-            ]
+                    completada: false,
+                },
+            ],
         },
         3: {
             nombre: "Samuel Imitola",
@@ -35,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     descripcion: "Crear modulo de configuracion",
                     fecha: "2025-06-15",
                     prioridad: "alta",
-                    completada: false
-                }
-            ]
+                    completada: true,
+                },
+            ],
         },
         4: {
             nombre: "Francisco Hernandez",
@@ -47,40 +50,39 @@ document.addEventListener('DOMContentLoaded', function () {
                     descripcion: "Crear poster para el proyecto",
                     fecha: "2025-06-15",
                     prioridad: "alta",
-                    completada: false
+                    completada: false,
                 },
                 {
                     titulo: "Controles",
                     descripcion: "Llevar los controles del play 5",
                     fecha: "2025-06-15",
                     prioridad: "alta",
-                    completada: false
-                }
+                    completada: false,
+                },
             ],
-
-        }
+        },
     };
 
-    const modal = document.getElementById('memberModal');
-    const closeBtn = document.querySelector('.close-modal');
-    const memberNameElement = document.getElementById('member-name');
-    const tasksContainer = document.getElementById('member-tasks');
+    const modal = document.getElementById("memberModal");
+    const closeBtn = document.querySelector(".close-modal");
+    const memberNameElement = document.getElementById("member-name");
+    const tasksContainer = document.getElementById("member-tasks");
 
     if (!modal || !closeBtn || !memberNameElement || !tasksContainer) {
-        console.error('Error: No se encontraron todos los elementos del modal');
+        console.error("Error: No se encontraron todos los elementos del modal");
         return;
     }
 
-    document.querySelectorAll('.member-avatar').forEach(avatar => {
-        avatar.addEventListener('click', function (event) {
+    document.querySelectorAll(".member-avatar").forEach((avatar) => {
+        avatar.addEventListener("click", function (event) {
             event.stopPropagation();
-            const memberId = this.getAttribute('data-member-id');
-            const memberName = this.getAttribute('data-member-name');
+            const memberId = this.getAttribute("data-member-id");
+            const memberName = this.getAttribute("data-member-name");
 
             if (memberId && memberName) {
                 mostrarTareasMiembro(memberId, memberName);
             } else {
-                console.error('Error: Datos del miembro no encontrados');
+                console.error("Error: Datos del miembro no encontrados");
             }
         });
     });
@@ -89,20 +91,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const member = miembrosData[memberId];
 
         if (!member) {
-            console.error('Miembro no encontrado');
+            console.error("Miembro no encontrado");
             return;
         }
 
         memberNameElement.textContent = memberName;
 
-        tasksContainer.innerHTML = '';
+        tasksContainer.innerHTML = "";
 
         if (member.tareas && member.tareas.length === 0) {
-            tasksContainer.innerHTML = '<p class="no-tasks">Este miembro no tiene tareas asignadas.</p>';
+            tasksContainer.innerHTML =
+                '<p class="no-tasks">Este miembro no tiene tareas asignadas.</p>';
         } else if (member.tareas) {
-            member.tareas.forEach(tarea => {
-                const tareaElement = document.createElement('div');
-                tareaElement.className = 'task-item';
+            member.tareas.forEach((tarea) => {
+                const tareaElement = document.createElement("div");
+                tareaElement.className = "task-item";
                 tareaElement.innerHTML = `
                     <h3>${tarea.titulo}</h3>
                     <p>${tarea.descripcion}</p>
@@ -111,35 +114,160 @@ document.addEventListener('DOMContentLoaded', function () {
                         <span>Prioridad: ${tarea.prioridad}</span>
                     </div>
                     <div class="task-meta">
-                        <span>Estado: ${tarea.completada ? '✅ Completada' : '🟡 Pendiente'}</span>
+                        <span>Estado: ${tarea.completada ? "✅ Completada" : "🟡 Pendiente"
+                    }</span>
                     </div>
                 `;
                 tasksContainer.appendChild(tareaElement);
             });
         }
 
-        modal.style.display = 'flex';
+        modal.style.display = "flex";
     }
 
     function formatDate(dateString) {
         if (!dateString) return "No especificada";
 
         try {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('es-ES', options);
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            return new Date(dateString).toLocaleDateString("es-ES", options);
         } catch (e) {
-            console.error('Error formateando fecha:', e);
+            console.error("Error formateando fecha:", e);
             return dateString;
         }
     }
 
-    closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
     });
 
-    window.addEventListener('click', function (event) {
+    window.addEventListener("click", function (event) {
         if (event.target === modal) {
-            modal.style.display = 'none';
+            modal.style.display = "none";
         }
     });
+    let currentMemberId = null;
+
+    document.querySelectorAll(".member-avatar").forEach((avatar) => {
+        avatar.addEventListener("click", function (event) {
+            event.stopPropagation();
+            currentMemberId = this.getAttribute("data-member-id");
+            const memberName = this.getAttribute("data-member-name");
+            if (currentMemberId && memberName) {
+                mostrarTareasMiembro(currentMemberId, memberName);
+            }
+        });
+    });
+
+    document.getElementById("btn-agregar-tarea").addEventListener("click", () => {
+        if (!currentMemberId) return;
+
+        const titulo = document.getElementById("nueva-tarea-titulo").value.trim();
+        const descripcion = document
+            .getElementById("nueva-tarea-desc")
+            .value.trim();
+        const fecha = document.getElementById("nueva-tarea-fecha").value;
+        const prioridad = document.getElementById("nueva-tarea-prioridad").value;
+        const fechaSeleccionada = new Date(fecha);
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+
+        if (fechaSeleccionada < hoy) {
+            alert("La fecha no puede ser anterior al día de hoy");
+            creationForm.date.focus();
+            return false;
+        }
+
+        if (!titulo || !fecha) {
+            alert("Título y fecha son obligatorios.");
+            return;
+        }
+        if (fechaSeleccionada < hoy) {
+            alert("La fecha no puede ser anterior al día de hoy");
+        }
+        const nuevaTarea = {
+            titulo,
+            descripcion,
+            fecha,
+            prioridad,
+            completada: false,
+        };
+
+        miembrosData[currentMemberId].tareas.push(nuevaTarea);
+        mostrarTareasMiembro(currentMemberId, miembrosData[currentMemberId].nombre);
+
+        // Limpiar campos
+        document.getElementById("nueva-tarea-titulo").value = "";
+        document.getElementById("nueva-tarea-desc").value = "";
+        document.getElementById("nueva-tarea-fecha").value = "";
+        document.getElementById("nueva-tarea-prioridad").value = "alta";
+    });
+
+    function mostrarTareasMiembro(memberId, memberName) {
+        const member = miembrosData[memberId];
+        if (!member) return;
+
+        memberNameElement.textContent = memberName;
+        tasksContainer.innerHTML = "";
+
+        if (!member.tareas || member.tareas.length === 0) {
+            tasksContainer.innerHTML =
+                '<p class="no-tasks">Este miembro no tiene tareas asignadas.</p>';
+        } else {
+            member.tareas.forEach((tarea, index) => {
+                const tareaElement = document.createElement("div");
+                tareaElement.className = "task-item";
+                tareaElement.innerHTML = `
+                <h3>${tarea.titulo}</h3>
+                <p>${tarea.descripcion}</p>
+                <div class="task-meta">
+                    <span>Fecha: ${formatDate(tarea.fecha)}</span>
+                    <span>Prioridad: ${tarea.prioridad}</span>
+                </div>
+                <div class="task-meta">
+                    <span>Estado: ${tarea.completada ? "🟩​ Completada" : "🟨​ Pendiente"
+                    }</span>
+                </div>
+                <button class="btn-eliminar-tarea" data-index="${index}">Eliminar</button>
+            `;
+                tasksContainer.appendChild(tareaElement);
+            });
+
+            document.querySelectorAll(".btn-eliminar-tarea").forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const index = this.getAttribute("data-index");
+                    miembrosData[memberId].tareas.splice(index, 1);
+                    mostrarTareasMiembro(memberId, memberName);
+                });
+            });
+        }
+        modal.style.display = "flex";
+    }
+
+    // Efecto de despliegue
+    const desplegarbtn = document.querySelector(".desplegar");
+    const modalAgregar = document.querySelector(".add-task-form");
+
+    desplegarbtn.addEventListener("click", (e) => {
+        aplicarEstilos(modalAgregar);
+        desplegarbtn.style.display = "none";
+    });
+    modalAgregar.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
+
+    modal.addEventListener("click", (e) => {
+        aplicarEstilos2(modalAgregar);
+        desplegarbtn.style.display = "block";
+    });
+
+    function aplicarEstilos(ventana) {
+        ventana.style.width = "auto";
+        ventana.style.height = "auto";
+    }
+
+    function aplicarEstilos2(ventana) {
+        ventana.style.width = "100px";
+        ventana.style.height = "25px";
+    }
 });

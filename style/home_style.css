@@ -2,9 +2,11 @@
     font-family: "Robot flex";
     src: url(..//font/RobotoFlex-VariableFont_GRAD\,XOPQ\,XTRA\,YOPQ\,YTAS\,YTDE\,YTFI\,YTLC\,YTUC\,opsz\,slnt\,wdth\,wght.ttf);
 }
-*{
+
+* {
     box-sizing: border-box;
 }
+
 :root {
     --color1: #f8f6f2;
     --color2: #e6ddc6;
@@ -16,9 +18,10 @@
     --color8: #ea3323;
     --color9: #c2d2F1;
 }
-body{
+
+body {
     margin: 0;
-    font-family:"Robot flex";
+    font-family: "Robot flex";
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -26,9 +29,10 @@ body{
     justify-content: center;
     margin: 15px;
 }
-.container{
+
+.container {
     min-height: 500px;
-    background-color:var(--color9);
+    background-color: var(--color9);
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -39,7 +43,7 @@ body{
     position: relative;
 }
 
-.container__header__icons{
+.container__header__icons {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -52,25 +56,31 @@ body{
     top: 10%;
     left: 0;
 }
-h2{
+
+h2 {
     margin: auto;
 }
-.container__header__icons img:hover{
+
+.container__header__icons img:hover {
     cursor: pointer;
 }
-img{
+
+img {
     max-width: 40px;
 }
-.container__members{
+
+.container__members {
     display: grid;
-    grid-template-columns:  repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 20px;
 }
-.members:nth-child(2n){
-        background-color:#395886;
+
+.members:nth-child(2n) {
+    background-color: #395886;
 }
-.members{
+
+.members {
     display: flex;
     justify-content: space-between;
     background-color: #628ECB;
@@ -79,35 +89,39 @@ img{
     padding: 10px;
     height: 100px;
 }
-.members:hover{
+
+.members:hover {
     opacity: .9;
     cursor: pointer;
 }
-.container__task{
+
+.container__task {
     display: flex;
     align-items: center;
     background-color: #006750;
     border-radius: 8px;
     padding: 8px;
     width: fit-content;
-    color:#F0F3EE ;
+    color: #F0F3EE;
     cursor: pointer;
     transition: background, 0.2s;
 }
 
-.container__task:hover{
+.container__task:hover {
     background-color: #48e;
     transition: background, 0.2s;
 }
-.container__task:active{
-        scale: 0.98;
+
+.container__task:active {
+    scale: 0.98;
 }
 
 a {
-    color:#F0F3EE ;
+    color: #F0F3EE;
     text-decoration: none;
     user-select: none;
 }
+
 /* Estilos para el modal */
 .modal {
     display: none;
@@ -136,8 +150,15 @@ a {
 }
 
 @keyframes modalFadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .close-modal {
@@ -211,4 +232,98 @@ a {
 
 .member-avatar:hover {
     transform: scale(1.05);
+}
+
+.add-task-form {
+    background-color: #FFFF;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-left: 4px solid #000;
+    height: 25px;
+    width: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.add-task-form h3 {
+    color: #000c;
+    text-align: center;
+}
+
+.add-task-form :where(input, select) {
+    background-color: #395886;
+    border: none;
+    box-shadow: 1px 2px 3px #48e;
+    border-radius: 5px;
+    padding: 8px;
+    outline: none;
+    color: #FFF;
+}
+
+.add-task-form :where(input, select):hover {
+    transform: scale(1.01);
+}
+
+.blur {
+    transition: 0.2s linear;
+}
+
+.add-task-form:has(.blur:hover) .blur:not(:hover) {
+    filter: blur(2px);
+    transition: 0.3s linear;
+}
+
+input::placeholder {
+    color: #FFF;
+}
+
+.btn-eliminar-tarea {
+    background-color: #48e;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px 5px 10px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+#btn-agregar-tarea {
+    margin: auto;
+    width: 100%;
+    padding: 5px 12px 5px 12px;
+    background-color: var(--color7);
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+:is(#btn-agregar-tarea, .btn-eliminar-tarea):active {
+    background-color: var(--color7);
+    background-color: #395886;
+    scale: 0.97;
+}
+
+@keyframes crecer {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.desplegar {
+    position: absolute;
+    top: 1px;
+    left: 20px;
+    color: #000;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
 }

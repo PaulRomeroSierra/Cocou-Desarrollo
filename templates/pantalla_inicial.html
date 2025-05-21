@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="../style/home_style.css">
     <title>Cocou</title>
 </head>
+
 <body>
     <main class="container">
-            <h2 id="bienvenida">Bienvenido {UserName} Jefe </h2>
+        <h2 id="bienvenida">Bienvenido {UserName} Jefe </h2>
         <header class="container__header">
             <div class="container__header__icons">
                 <a href="#"><img src="../img/grupo.png" alt="img_equipo"></a>
@@ -21,19 +23,19 @@
         <section class="container__members">
             <div class="members member-avatar" data-member-id="1" data-member-name="Jonathan Pedofilo">
                 <img src="../img/user_logo.png" alt="img_miembro">
-                
+
             </div>
             <div class="members member-avatar" data-member-id="2" data-member-name="Inael Chamos">
                 <img src="../img/user_logo.png" alt="img_miembro">
-                
+
             </div>
             <div class="members member-avatar" data-member-id="3" data-member-name="Samuel brujo">
                 <img src="../img/user_logo.png" alt="img_miembro">
-                
+
             </div>
             <div class="members member-avatar" data-member-id="4" data-member-name="Pacho Hernandez">
                 <img src="../img/user_logo.png" alt="img_miembro">
-                
+
             </div>
         </section>
         <section class="container__task">
@@ -46,6 +48,20 @@
             <span class="close-modal material-symbols-outlined">close</span>
             <h2 id="modal-member-name">Tareas de <span id="member-name"></span></h2>
             <div class="task-list" id="member-tasks">
+            </div>
+            <!--ara agregar nueva tarea -->
+            <div class="add-task-form">
+                <span class="desplegar">Agregar</span>
+                <h3>Agregar nueva tarea</h3>
+                <input class="blur" type="text" id="nueva-tarea-titulo" placeholder="Título de la tarea">
+                <input class="blur" type="text" id="nueva-tarea-desc" placeholder="Descripción">
+                <input class="blur" type="date" id="nueva-tarea-fecha">
+                <select class="blur" id="nueva-tarea-prioridad">
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+                <button id="btn-agregar-tarea">Agregar</button>
             </div>
         </div>
     </div>
