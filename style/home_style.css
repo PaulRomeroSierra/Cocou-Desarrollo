@@ -43,6 +43,19 @@ body {
     position: relative;
 }
 
+.container2 {
+    min-height: 500px;
+    background-color: var(--color9);
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 12px;
+    min-width: 380px;
+    position: relative;
+}
+
 .container__header__icons {
     display: flex;
     width: 100%;
@@ -280,7 +293,7 @@ input::placeholder {
     color: #FFF;
 }
 
-.btn-eliminar-tarea {
+.btn-eliminar-tarea, .btn-cambiar-estado{
     background-color: #48e;
     border: none;
     border-radius: 8px;
@@ -289,7 +302,7 @@ input::placeholder {
     color: #fff;
 }
 
-#btn-agregar-tarea {
+#btn-agregar-tarea{
     margin: auto;
     width: 100%;
     padding: 5px 12px 5px 12px;
@@ -298,7 +311,6 @@ input::placeholder {
     color: #FFF;
     cursor: pointer;
 }
-
 :is(#btn-agregar-tarea, .btn-eliminar-tarea):active {
     background-color: var(--color7);
     background-color: #395886;

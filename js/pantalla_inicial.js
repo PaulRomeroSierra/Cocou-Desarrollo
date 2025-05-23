@@ -1,9 +1,19 @@
-import { getActiveUser } from "./user_manager.js";
+import { getActiveUser, getActiveUser2 } from "./user_manager.js";
 const bienvenida = document.getElementById("bienvenida");
-bienvenida.textContent = bienvenida.textContent.replace(
-    "{UserName}",
-    getActiveUser().name
-);
+const pantalla_inicial = document.querySelector(".container");
+const pantalla_inicial_usuario = document.querySelector(".container2");
+if (pantalla_inicial) {
+    bienvenida.textContent = bienvenida.textContent.replace(
+        "{UserName}",
+        getActiveUser().name
+    );
+}
+if (pantalla_inicial_usuario) {
+    bienvenida.textContent = bienvenida.textContent.replace(
+        "{UserName}",
+        getActiveUser2().name
+    );
+}
 document.addEventListener("DOMContentLoaded", function () {
     const miembrosData = {
         1: {
@@ -114,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span>Prioridad: ${tarea.prioridad}</span>
                     </div>
                     <div class="task-meta">
-                        <span>Estado: ${tarea.completada ? "✅ Completada" : "🟡 Pendiente"
+                        <span>Estado: ${tarea.completada ? "🟩 Completada" : "🟨 Pendiente"
                     }</span>
                     </div>
                 `;
@@ -219,17 +229,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 tareaElement.className = "task-item";
                 tareaElement.innerHTML = `
                 <h3>${tarea.titulo}</h3>
-                <p>${tarea.descripcion}</p>
-                <div class="task-meta">
-                    <span>Fecha: ${formatDate(tarea.fecha)}</span>
-                    <span>Prioridad: ${tarea.prioridad}</span>
-                </div>
-                <div class="task-meta">
-                    <span>Estado: ${tarea.completada ? "🟩​ Completada" : "🟨​ Pendiente"
-                    }</span>
-                </div>
-                <button class="btn-eliminar-tarea" data-index="${index}">Eliminar</button>
-            `;
+                    <p>${tarea.descripcion}</p>
+                    <div class="task-meta">
+                        <span>Fecha: ${formatDate(tarea.fecha)}</span>
+                        <span>Prioridad: ${tarea.prioridad}</span>
+                    </div>
+                    <div class="task-meta">
+                        <span>Estado: ${tarea.completada ? "🟩 Completada" : "🟨 Pendiente"}</span>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn-cambiar-estado" data-index="${index}">
+                            ${tarea.completada ? "Marcar Pendiente" : "Marcar Completada"}
+                        </button>
+                        <button class="btn-eliminar-tarea" data-index="${index}">Eliminar</button>
+                    </div>
+                `;
                 tasksContainer.appendChild(tareaElement);
             });
 
@@ -237,6 +251,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 btn.addEventListener("click", function () {
                     const index = this.getAttribute("data-index");
                     miembrosData[memberId].tareas.splice(index, 1);
+                    mostrarTareasMiembro(memberId, memberName);
+                });
+            });
+            document.querySelectorAll(".btn-cambiar-estado").forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const index = this.getAttribute("data-index");
+                    miembrosData[memberId].tareas[index].completada =
+                        !miembrosData[memberId].tareas[index].completada;
                     mostrarTareasMiembro(memberId, memberName);
                 });
             });

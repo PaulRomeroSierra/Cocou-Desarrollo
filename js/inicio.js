@@ -1,34 +1,34 @@
-import { getActiveUser } from "./user_manager.js";
+import { getActiveUser, getActiveUser2 } from "./user_manager.js";
 
 const form = document.querySelector("#form_inicio");
-
 const ocultar = document.querySelector(".pass");
 const verContraseña = document.querySelector(".contraseña");
-
 const mail = document.getElementById("mail");
-
 const cancel = document.querySelector(".cancel");
 const cancel_pass = document.querySelector(".cancel-pass");
 
-const email = getActiveUser().email;
-const password = getActiveUser().contraseña;
+// Obtener credenciales
+const user1 = getActiveUser();
+const user2 = getActiveUser2();
 
+const credenciales = [
+    { email: user1.email, contraseña: user1.contraseña },
+    { email: user2.email, contraseña: user2.contraseña }
+];
+// Inicializar eventos
 eventsIncio();
-eventsValidacionInicio();
+// eventsValidacionInicio(); // Esta función tiene problemas, mejor eliminarla por ahora
 
 form.addEventListener("submit", e => {
+    e.preventDefault();
+
     if (!validarInicio()) {
-        e.preventDefault();
         alert("No puedes iniciar sin ingresar los datos correctamente");
         return;
     }
     enterMainPage();
 });
 
-function enterMainPage() {
-    window.location.href = "../templates/pantalla_inicial.html";
-    alert("Iniciando sesión...");
-}
 
 function validarInicio() {
     return validarMailInicio() && validarContraseñaInicio();
@@ -40,21 +40,35 @@ function eventsIncio() {
         verContraseña.setAttribute("type", "text");
     });
 
-    ocultar.addEventListener("click", e => {
+    ocultar.addEventListener("mouseup", e => {
         ocultar.innerHTML = "visibility_off";
         verContraseña.setAttribute("type", "password");
     });
 }
 
 function validarMailInicio() {
-    return mail.value === email;
+    const emailIngresado = mail.value;
+    return credenciales.some(user => user.email === emailIngresado);
 }
 
 function validarContraseñaInicio() {
-    return verContraseña.value === password;
+    const passIngresado = verContraseña.value;
+    return credenciales.some(user => user.contraseña === passIngresado);
 }
-
-function eventsValidacionInicio() {
-    mail.addEventListener("input", validarMailInicio);
-    verContraseña.addEventListener("input", validarContraseñaInicio);
+function enterMainPage() {
+    const emailIngresado = mail.value;
+    const passIngresado = verContraseña.value;
+    if (emailIngresado === credenciales[0].email && passIngresado === credenciales[0].contraseña) {
+        alert("Iniciando sesion ...");
+        window.location.href = "../templates/pantalla_inicial.html";
+        return;
+    }
+    else if (emailIngresado === credenciales[1].email && passIngresado === credenciales[1].contraseña) {
+        alert("Iniciando sesion ...");
+        window.location.href = "../templates/pantalla_inicial_usuario.html";
+        return;
+    }
+    alert("Credenciales incorrectas");
+    mail.value = "";
+    verContraseña.value = "";
 }
